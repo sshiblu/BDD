@@ -14,8 +14,10 @@ class TumblrLoginPage < GenericPage
 
   def log_out_when_logged_in
     begin
+      # check if you're logged in first
       @browser.goto BASE_URL
-      @browser.button(id: "signup_login_button").when_present(5)
+      # check if an element on the Dashboard can be accessed
+      @browser.a(text: "Text").wait_until_present(5)
       # if it is found...
       # call the log_out method
       log_out
@@ -27,7 +29,6 @@ class TumblrLoginPage < GenericPage
   end
 
   def log_out
-    binding.pry
     @browser.div(id:"account_button").button(class:"tab_anchor").when_present(5).click
     @browser.div(class:"popover_item_suffix").when_present(5).click
     @browser.button(class:"ui_button btn_1 chrome blue").when_present(5).click
