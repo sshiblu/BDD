@@ -1,0 +1,3 @@
+default: -t ~@wip 
+
+shorof: -t @set, @passed

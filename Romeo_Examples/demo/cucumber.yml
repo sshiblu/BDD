@@ -1,0 +1,3 @@
+smoke: -t @smoke
+romeo: -t @romeo
+non_wip: -t ~@wip
