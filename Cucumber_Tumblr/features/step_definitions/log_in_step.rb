@@ -8,10 +8,10 @@ end
 
   Then /^I should be taken to the Tumblr Dashboard$/ do
     @tumblr.tumblr_dashboard.check
+    @tumblr.tumblr_login.log_out
   end
 
   And /^I have entered an Invalid email$/ do
-    @tumblr.tumblr_login.log_out
     @tumblr.tumblr_login.wrong_login
   end
 
