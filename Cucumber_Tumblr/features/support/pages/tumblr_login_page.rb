@@ -36,11 +36,10 @@ class TumblrLoginPage < GenericPage
   def wrong_login
     email_textfield.when_present(5).set "foo"
     next_button.click
-    binding.pry
   end
 
   def verify_email_error_msg
-    raise unless @browser.li(class: "error").text == email_error_msg
+    raise unless @browser.li(class: "error").when_present(5).text == email_error_msg
   end
 
   private
