@@ -1,1 +1,3 @@
 default: -t ~@wip
+
+post: -t @post

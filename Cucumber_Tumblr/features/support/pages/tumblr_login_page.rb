@@ -39,7 +39,12 @@ class TumblrLoginPage < GenericPage
   end
 
   def verify_email_error_msg
-    raise unless @browser.li(class: "error").when_present(5).text == email_error_msg
+    raise unless error_message.when_present(5).text == email_error_msg
+  end
+
+  def logged_in
+    visit
+    login
   end
 
   private
@@ -78,6 +83,10 @@ class TumblrLoginPage < GenericPage
 
   def email_login_button
     @browser.button(id:"signup_forms_submit")
+  end
+
+  def error_message
+    @browser.li(class: "error")
   end
 
   def email_error_msg

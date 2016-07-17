@@ -10,4 +10,8 @@ class Tumblr
   def tumblr_dashboard
     @tumblr_dashboard ||=TumblrDashboardPage.new @browser
   end
+
+  def tumblr_post_modal
+    @tumblr_post_modal ||=TumblrPostModal.new @browser
+  end
 end
